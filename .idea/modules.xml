@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/agendar-horarios.iml" filepath="$PROJECT_DIR$/.idea/agendar-horarios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agendar-horarios/agendar-horarios.iml" filepath="$PROJECT_DIR$/agendar-horarios/agendar-horarios.iml" />
     </modules>
   </component>
 </project>
