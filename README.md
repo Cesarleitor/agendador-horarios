@@ -1,148 +1,126 @@
-# 📅 Agendador de Horários
+# 💈 Sistema de Agendamento – Barbearia Premium
 
-API REST desenvolvida com **Java e Spring Boot** para gerenciamento de agendamentos.
-O sistema permite criar, listar, atualizar e excluir horários de forma simples, simulando aplicações reais como clínicas, barbearias ou serviços de atendimento.
-
----
-
-## 🚀 Objetivo
-
-Este projeto foi desenvolvido com foco em aprendizado de:
-
-* Construção de APIs REST com Spring Boot
-* Integração com banco de dados usando JPA/Hibernate
-* Organização em camadas (Controller, Service, Repository)
-* Boas práticas para back-end Java
+Sistema full stack para gerenciamento de agendamentos de uma barbearia, desenvolvido com Spring Boot (backend) e React (frontend).
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## 🚀 Visão Geral
 
-* ☕ Java
-* 🌱 Spring Boot
-* 📦 Spring Data JPA
-* 🗄️ Hibernate
-* 💾 H2 Database (banco em memória)
-* 🔧 Maven
+Este projeto permite que clientes visualizem serviços, realizem agendamentos online e consultem horários disponíveis.  
+Também permite que administradores gerenciem agendamentos, clientes e horários de atendimento.
 
 ---
 
-## 📂 Estrutura do projeto
+## 🧱 Tecnologias Utilizadas
 
-```bash
-src/main/java/
- ├── controller/   # Endpoints da API
- ├── service/      # Regras de negócio
- ├── repository/   # Acesso ao banco
- └── model/        # Entidades (JPA)
+### Backend
+- Java 21
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- Hibernate
+- H2 Database (em desenvolvimento)
+- Maven
 
-src/main/resources/
- ├── application.properties
- └── data.sql (opcional)
-```
-
----
-
-## ⚙️ Como executar o projeto
-
-### 🔹 Pré-requisitos
-
-* Java 17 ou superior
-* Maven instalado
-* IDE (IntelliJ recomendado)
+### Frontend
+- React
+- React Router DOM
+- JavaScript (ES6+)
+- CSS
+- Vite
 
 ---
 
-### 🔹 Passo a passo
+## 📁 Estrutura do Projeto
 
-```bash
-# Clone o repositório
-git clone https://github.com/Cesarleitor/agendador-horarios.git
-
-# Entre na pasta
-cd agendador-horarios
-
-# Execute o projeto
-mvn spring-boot:run
-```
-
----
-
-## 🌐 API Endpoints
-
-| Método | Endpoint             | Descrição                   |
-| ------ | -------------------- | --------------------------- |
-| GET    | `/agendamentos`      | Lista todos os agendamentos |
-| GET    | `/agendamentos/{id}` | Busca por ID                |
-| POST   | `/agendamentos`      | Cria um novo agendamento    |
-| PUT    | `/agendamentos/{id}` | Atualiza um agendamento     |
-| DELETE | `/agendamentos/{id}` | Remove um agendamento       |
+agendar-horarios/
+│
+├── backend/
+│   ├── src/
+│   ├── pom.xml
+│   └── mvnw
+│
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
 
 ---
 
-## 📌 Exemplo de requisição (POST)
+## ⚙️ Como Executar o Projeto
 
-```json
-{
-  "nome": "Cesar",
-  "data": "2026-03-30",
-  "horario": "14:00"
-}
-```
+### Backend (Spring Boot)
 
----
+cd backend  
+./mvnw spring-boot:run  
 
-## 🧪 Banco de dados (H2)
-
-O projeto utiliza o H2 para facilitar testes.
-
-Acesse no navegador:
-
-```
-http://localhost:8080/h2-console
-```
+Servidor: http://localhost:8081  
 
 ---
 
-## ⚠️ Observações importantes
+### Frontend (React)
 
-* Campos primitivos (`long`, `int`) podem gerar erro ao receber `null`, então prefira usar `Long` e `Integer`
-* Para evitar problemas de performance, recomenda-se desativar:
+cd frontend  
+npm install  
+npm run dev  
 
-```properties
-spring.jpa.open-in-view=false
-```
-
----
-
-## 💡 Possíveis melhorias
-
-* 🔐 Sistema de autenticação (Spring Security + JWT)
-* 📱 Integração com front-end (React ou Angular)
-* 📧 Notificações de agendamento
-* 📊 Dashboard administrativo
-* 🐳 Dockerização da aplicação
+Aplicação: http://localhost:5173  
 
 ---
 
-## 🧑‍💻 Autor
+## 🔗 Integração Frontend + Backend
 
-Desenvolvido por **Cesar**
+O frontend consome a API do backend:
 
-* GitHub: https://github.com/Cesarleitor
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
+fetch("http://localhost:8081/agendamentos")  
+.then(res => res.json())  
+.then(data => console.log(data));
 
 ---
 
-## ⭐ Sobre o projeto
+## 📌 Funcionalidades
 
-Sistemas de agendamento são amplamente utilizados em aplicações reais para organização de horários e reservas, permitindo cadastro, consulta e gerenciamento de compromissos de forma eficiente ([GitHub][1]).
+### Cliente
+- Visualizar serviços
+- Realizar agendamentos
+- Consultar horários disponíveis
+
+### Administrador
+- Listar agendamentos
+- Cancelar ou editar horários
+- Gerenciar clientes
 
 ---
 
-[1]: https://github.com/Snarloff/sistema-agendamento?utm_source=chatgpt.com "GitHub - Snarloff/sistema-agendamento: Este é um projeto de sistema de agendamento desenvolvido como parte de estudos anteriores. O sistema permite que os usuários cadastrem e visualizem agendamentos em um calendário, vejam detalhes de agendamentos individuais e recebam notificações por e-mail quando uma consulta está próxima."
+## 🧠 Aprendizados
+
+- Desenvolvimento full stack
+- Criação de API REST com Spring Boot
+- Consumo de API com React
+- Organização de projetos frontend/backend
+- Integração entre sistemas
+
+---
+
+## 🔮 Próximas melhorias
+
+- Sistema de login (JWT)
+- Painel administrativo completo
+- Controle de barbeiros
+- Notificações de agendamento
+- Deploy (Vercel + Railway)
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Cesar  
+Projeto pessoal focado em aprendizado e portfólio full stack.
+
+---
+
+## ⭐ Status do Projeto
+
+Em desenvolvimento contínuo
